@@ -1,18 +1,16 @@
-clear; 
+clear;
 
-x = linspace(-3,0,200);
-f = x.^2;
+fileID = fopen('data.txt','r');
+data = fscanf(fileID,'%f %f %f %d',[4 inf]);
+fclose(fileID);
+data = data';
 
-fh = zeros(1,200);
+t = data(:,4);
+rx = 2*data(:,1);
+ry = 7*data(:,1);
+rz = 9*data(:,3);
 
-for n = 1:5
-    fh = fh + a(n)*cos(n*pi*x/3);
-end
-
-fh = a0/2 + fh;
-
-hold on
-plot(x,f,'r',x,fh,'b')
-legend('f','fh','Location','best')
-title('Even extension of y = x^2,  0 < x < 3')
-hold off;
+plot3(rx,ry,rz,'Linewidth',2)
+xlabel('x'), ylabel('y'), zlabel('z');
+title('Ioannis Papaspyridis - 400363946');
+grid on;
