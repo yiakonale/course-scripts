@@ -2,9 +2,6 @@ IQ<-databank$IQ
 IQ<-IQ[!is.na(IQ)]
 IQ
 
-lnhic<-log(crash$hic)
-crash<-cbind(crash,lnhic)
-
 range(IQ)
 
 group=cut(IQ,breaks=c(80,90,100,110,120,130,140),right=FALSE)
